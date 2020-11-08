@@ -19,18 +19,18 @@ class Helper
         return 'true';
     }
 
-    public static function upload($data)
+    public static function upload($image)
     {
-        $name = time() . '.' . $data->getClientOriginalExtension();
+        $name = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = storage_path('/images/');
-        $data->move($destinationPath, $name);
+        $image->move($destinationPath, $name);
 
-        $image = '/images/' . $name;
+        $image = '/images/'.$name;
 
         return $image;
     }
 
-    public static function transferLimit($user)
+    public static function transferLimit()
     {
 
     }

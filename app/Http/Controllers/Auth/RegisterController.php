@@ -60,9 +60,10 @@ class RegisterController extends Controller
     {
 
         $data['referrer_code'] = $this->generateRandomString();
-        if (Input::hasfile($data['avatar'])) {
-            $image = Helper::upload($data['valid_id']);
-            $data['valid_id'] = $image;
+        if (isset($data['valid_id'])) {
+            $image = $data['valid_id'];
+            $imag = Helper::upload($image);
+            $data['valid_id'] = $imag;
         }
         $user = '';
 
